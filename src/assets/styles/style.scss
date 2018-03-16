@@ -1,0 +1,52 @@
+.mint-header {
+  line-height: normal;
+  height: 44px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #333;
+}
+
+.mint-button-icon {
+  height: 22px;
+  width: 14px;
+}
+
+.mint-button-text {
+  font-size: 14px;
+}
+
+.mint-cell-label,
+.mint-cell-text {
+  margin-left: 2px;
+}
+
+.mint-cell .mint-cell-title {
+  font-size: 16px;
+}
+
+.mint-cell .mint-cell-value {
+  font-size: 13px;
+}
+
+.mint-swipe {
+  height: 250px;
+}
+
+.contact-page,
+.discover-page,
+.me-page {
+  margin-top: 56px;
+}
+
+.btn-area {
+  padding: 12px 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: block;
+  border-top: 0.55px solid #e7e7e7;
+  background-color: #f7f7f7;
+}
+
