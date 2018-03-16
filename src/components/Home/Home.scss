@@ -1,15 +1,15 @@
 .home-page {
   .am-list-thumb {
     img {
-      width: 88px;
-      height: 66px;
+      width: 56px;
+      height: 56px;
     }
   }
 
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
 
     .am-list-item {
-      padding: 12px 0 12px;
+      padding: 2px 0 1px;
       margin-left: 12px;
       border-bottom: .5px solid #e7e7e7;
 
