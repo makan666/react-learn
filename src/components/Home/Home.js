@@ -5,6 +5,7 @@ import {getSubscriptions} from '../../model/actions/subscriptions';
 import { List } from 'antd-mobile';
 import moment from 'moment';
 import './Home.scss'
+import SearchBar from '../SearchBar/SearchBar';
 
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -22,15 +23,22 @@ class Home extends React.Component {
         const subscriptions = this.props.subscriptions;
         if (subscriptions && subscriptions.data) {
             const list = subscriptions.data.map((item, index) => {
-                // return <div key={index}>{item.id}</div>
-                console.log(item)
-                return <Item key={index} extra={moment(item.latestMsgAt).format('YYYY-MM-DD')} align="top" thumb={require('../../'+item.logo)} multipleLine>
-                                {item.name}
-                                <Brief>{item.latestMsg}</Brief>
-                            </Item>
+                return (
+                    <Item key={index} extra={moment(item.latestMsgAt).format('YYYY-MM-DD')}
+                          align="top" thumb={require('../../'+item.logo)} multipleLine>
+                        {item.name}
+                        <Brief>{item.latestMsg}</Brief>
+                    </Item>
+                )
 
             });
-            return <List className='home-page'>{list}</List>
+            return (
+                <div>
+                    <SearchBar placeholder='搜索'></SearchBar>
+                    <List className='home-page'>{list}</List>
+                </div>
+            )
+
         }
         return <div>加载中。。。</div>;
     }
