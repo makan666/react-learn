@@ -25,11 +25,11 @@ export function getListFailure(error) {
     }
 }
 
-export function getTrialCarList() {
+export function getTrialCarList(page) {
     return function (dispatch) {
         // 假接口，看看就行
         dispatch(getListLoading(true));
-        fetch('http://127.0.0.1:3000/api/trial_cars.json', {method: 'get', type: 'json'})
+        fetch(`http://127.0.0.1:3000/api/trial_cars?format=json&page=${page}`, {method: 'get', type: 'json'})
             .then((res) => {
               dispatch(getListLoading(false));
               res.json().then(function (data) {
