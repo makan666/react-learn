@@ -1,6 +1,6 @@
 import {CRUD_GET_LIST_SUCCESS} from "../actions/trialCars";
 
-let initialState = {loadMore: {pageNum: 1, loading: true, hasMore: false, noMore: true}};
+let initialState = {pageNum: 1, hasMore: false};
 
 export default function trialCars(state = initialState, action) {
   switch (action.type) {
@@ -10,18 +10,13 @@ export default function trialCars(state = initialState, action) {
         trialCars.links = action.payload.links
         trialCars.data = (state.data || []).concat(action.payload.data)
         if (action.payload.links.next) {
-            state.loadMore.pageNum++
-            state.loadMore.hasMore = true
-            state.loadMore.loading = true
+            state.pageNum++
+            state.hasMore = true
         } else {
-            state.loadMore.hasMore = false
-            state.loadMore.noMore = true
-            state.loadMore.loading = false
+            state.hasMore = false
         }
       return Object.assign({}, state, trialCars);
     default:
       return state;
   }
 }
-
-// 6080 3201 2200 155279

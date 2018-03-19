@@ -23,12 +23,9 @@ class TrialCars extends React.Component {
     }
 
     loadNextFunc() {
-        console.log(this.props.trialCars.loadMore.hasMore)
-        let page = this.props.trialCars.loadMore.pageNum;
-        if (this.props.trialCars.loadMore.hasMore) {
+        let page = this.props.trialCars.pageNum;
+        if (this.props.trialCars.hasMore) {
             this.props.getTrialCarList(page)
-        } else {
-
         }
     }
 
@@ -60,10 +57,14 @@ class TrialCars extends React.Component {
                         ]}
                     >试驾</NavBar>
                     <InfiniteScroll
-                        next={this.loadNextFunc()}
+                        next={this.loadNextFunc.bind(this)}
                         scrollThreshold='1'
-                        hasMore={this.props.trialCars.loadMore.hasMore}
-                        loader={<h4>Loading...</h4>}
+                        hasMore={this.props.trialCars.hasMore}
+                        loader={
+                            <div className="bottom-area">
+                                <img src={require('../../assets/img/loading.svg')}/>
+                            </div>
+                        }
                         endMessage={
                             <div className="bottom-area">
                                 <div className="no-more">没有更多了</div>
@@ -75,7 +76,11 @@ class TrialCars extends React.Component {
                 </div>
             )
         }
-        return <div>加载中。。。</div>;
+        return (
+            <div className='trial-cars'>
+                <div className='center'>加载中...</div>
+            </div>
+        );
     }
 }
 

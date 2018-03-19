@@ -1,7 +1,16 @@
 .trial-cars {
+  text-align: center;
 
   .am-navbar {
+    top: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
     background-color: #333;
+  }
+
+  .search-bar {
+    margin-top: 53px;
   }
 
   .am-navbar-right {
@@ -89,5 +98,9 @@
       color: #acb1b7;
       background-color: #fff;
     }
+  }
+
+  .center {
+    text-align: center;
   }
 }
