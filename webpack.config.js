@@ -7,7 +7,10 @@ module.exports = {
   ],
   output: {
     path: __dirname + '/build',
-    filename: "bundle.js"
+    filename: "bundle.js",
+  },
+  devServer: {
+    historyApiFallback: true
   },
   module: {
     rules: [{
