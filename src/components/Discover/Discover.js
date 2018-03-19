@@ -1,35 +1,34 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {getTrialCarList} from '../../model/actions/trialCars';
+import { List } from 'antd-mobile';
+const Item = List.Item;
+import './Discover.scss'
 
 class Discover extends React.Component {
-  static propTypes = {
-    trialCars: PropTypes.object
-  };
-
-  componentDidMount() {
-    this.props.getTrialCarList();
-  }
 
   render() {
-    const trialCars = this.props.trialCars;
-    if (trialCars && trialCars.data) {
-      const list = trialCars.data.map((item, index) => {
-        return <div key={index}>{item.displayName}</div>
-      })
-      return <div>{list}</div>
-    }
-    return <div>加载中。。。</div>;
+      return (
+          <div className='discover-page'>
+            <List className=''>
+              <Item thumb={require('../../assets/img/discovery/car-social.svg')} arrow="horizontal" onClick={() => {}}>
+                车友圈
+              </Item>
+            </List>
+            <List>
+              <Item className='border-bottom' thumb={require('../../assets/img/discovery/scan.svg')} onClick={() => {}} arrow="horizontal">
+                扫一扫
+              </Item>
+              <Item thumb={require('../../assets/img/discovery/bibi.svg')} arrow="horizontal">
+                按喇叭
+              </Item>
+            </List>
+            <List>
+              <Item thumb={require('../../assets/img/discovery/nearby-car.svg')} arrow="horizontal">
+                附近有车
+              </Item>
+            </List>
+          </div>
+      )
   }
 }
 
-const mapStateToProps = (state) => ({
-  trialCars: state.trialCars
-});
-
-const mapDispatchToProps = {
-  getTrialCarList
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Discover);
+export default Discover;

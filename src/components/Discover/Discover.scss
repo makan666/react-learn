@@ -1,0 +1,27 @@
+.discover-page {
+  height: 100%;
+  padding-top: 12px;
+  background-color: #f7f7f7;
+
+  .am-list:nth-child(2) {
+    margin: 12px 0;
+  }
+
+  .am-list-item {
+    padding: 5px 0 5px 10px;
+  }
+
+  .am-list-item .am-list-thumb:first-child {
+    margin-right: 8px;
+  }
+
+  .am-list-item img {
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+  }
+
+  .border-bottom {
+    border-bottom: .5px solid #f7f7f7;
+  }
+}
