@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import store from './model';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Route,BrowserRouter, Switch} from 'react-router-dom';
 import TrialCars from './components/TrialCars/TrialCars';
 import Tabs from './components/Tabs/Tabs';
 
@@ -10,12 +10,12 @@ class App extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <Router>
-                    <div>
-                        <Route exact path="/" component={Tabs}/>
-                        <Route exact path="/trial-cars" component={TrialCars}/>
-                    </div>
-                </Router>
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path="/" component={Tabs}></Route>
+                        <Route path="/trial-cars" component={TrialCars}></Route>
+                    </Switch>
+                </BrowserRouter>
             </Provider>
         );
     }
