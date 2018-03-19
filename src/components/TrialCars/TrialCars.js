@@ -10,11 +10,6 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 
 class TrialCars extends React.Component {
 
-    constructor(props) { // 注意这里将props传入了构造器 Class 方式创建的组件必须总是调用带有 props 的构造器
-        super(props);
-
-    }
-
     static propTypes = {
         trialCars: PropTypes.object
     };
@@ -28,9 +23,12 @@ class TrialCars extends React.Component {
     }
 
     loadNextFunc() {
+        console.log(this.props.trialCars.loadMore.hasMore)
         let page = this.props.trialCars.loadMore.pageNum;
         if (this.props.trialCars.loadMore.hasMore) {
             this.props.getTrialCarList(page)
+        } else {
+
         }
     }
 
@@ -61,10 +59,9 @@ class TrialCars extends React.Component {
                             <Icon key="0" type="ellipsis" style={{marginRight: '16px'}}/>
                         ]}
                     >试驾</NavBar>
-                    <SearchBar placeholder='搜索'></SearchBar>
-                    {/*<div>{list}</div>*/}
                     <InfiniteScroll
                         next={this.loadNextFunc()}
+                        scrollThreshold='1'
                         hasMore={this.props.trialCars.loadMore.hasMore}
                         loader={<h4>Loading...</h4>}
                         endMessage={
@@ -72,6 +69,7 @@ class TrialCars extends React.Component {
                                 <div className="no-more">没有更多了</div>
                             </div>
                         }>
+                        <SearchBar placeholder='搜索'></SearchBar>
                         {list}
                     </InfiniteScroll>
                 </div>

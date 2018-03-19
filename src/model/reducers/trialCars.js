@@ -1,6 +1,6 @@
 import {CRUD_GET_LIST_SUCCESS} from "../actions/trialCars";
 
-let initialState = {trialCars: {}, loadMore: {pageNum: 1, loading: true, hasMore: true, noMore: true}};
+let initialState = {loadMore: {pageNum: 1, loading: true, hasMore: false, noMore: true}};
 
 export default function trialCars(state = initialState, action) {
   switch (action.type) {
@@ -8,8 +8,7 @@ export default function trialCars(state = initialState, action) {
         let trialCars = {}
         trialCars.count = action.payload.count
         trialCars.links = action.payload.links
-        trialCars.data = (state.trialCars.data || []).concat(action.payload.data)
-        state.trialCars = trialCars
+        trialCars.data = (state.data || []).concat(action.payload.data)
         if (action.payload.links.next) {
             state.loadMore.pageNum++
             state.loadMore.hasMore = true
