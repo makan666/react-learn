@@ -1,0 +1,51 @@
+.me-page {
+  height: 100%;
+  padding-top: 12px;
+  background-color: #f7f7f7;
+  color: #41454d;
+
+  .am-list {
+    border-top: .5px solid #e7e7e7;
+    border-bottom: .5px solid #e7e7e7;
+  }
+
+  .am-list:nth-child(2) {
+    margin: 12px 0;
+  }
+
+  .am-list:nth-child(4) {
+    margin-top: 12px;
+  }
+
+  .avatar .am-list-thumb img {
+    width: 56px;
+    height: 56px;
+    margin-right: 4px;
+  }
+
+  .am-list-thumb img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .am-list-item {
+    margin-left: 12px;
+    padding-left: 0;
+
+    .am-list-thumb:first-child {
+      margin-right: 8px;
+    }
+
+    .am-list-line .am-list-content {
+      color: #41454d;
+    }
+  }
+
+  .list-item {
+    background-color: #fff;
+  }
+
+  .border-bottom {
+    border-bottom: .5px solid #e7e7e7;
+  }
+}

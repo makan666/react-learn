@@ -1,35 +1,45 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {getTrialCarList} from '../../model/actions/trialCars';
+import {List} from 'antd-mobile';
+import './Me.scss'
+
+const Item = List.Item;
+const Brief = Item.Brief;
 
 class Me extends React.Component {
-  static propTypes = {
-    trialCars: PropTypes.object
-  };
 
-  componentDidMount() {
-    this.props.getTrialCarList();
-  }
-
-  render() {
-    const trialCars = this.props.trialCars;
-    if (trialCars && trialCars.data) {
-      const list = trialCars.data.map((item, index) => {
-        return <div key={index}>{item.displayName}</div>
-      })
-      return <div>{list}</div>
+    render() {
+        return (
+            <div className='me-page'>
+                <List className='avatar'>
+                    <Item arrow="horizontal" thumb={require('../../assets/img/img-default-avatar.svg')} multipleLine onClick={() => {}}>
+                        未设置昵称
+                        <Brief>看车号：000000</Brief>
+                    </Item>
+                </List>
+                <List className='list-item'>
+                    <Item className='border-bottom' thumb={require('../../assets/img/me/ico-mycar.svg')} arrow="horizontal" onClick={() => {}}>
+                        我的车
+                    </Item>
+                    <Item className='border-bottom' thumb={require('../../assets/img/me/ico-wallet.svg')} arrow="horizontal" onClick={() => {}}>
+                        钱包
+                    </Item>
+                    <Item thumb={require('../../assets/img/me/ico-coupon.svg')} arrow="horizontal" onClick={() => {}}>
+                        卡券
+                    </Item>
+                </List>
+                <List className=''>
+                    <Item thumb={require('../../assets/img/me/ico-order.svg')} arrow="horizontal" onClick={() => {}}>
+                        订单
+                    </Item>
+                </List>
+                <List className=''>
+                    <Item thumb={require('../../assets/img/me/ico-settings.svg')} arrow="horizontal" onClick={() => {}}>
+                        设置
+                    </Item>
+                </List>
+            </div>
+        )
     }
-    return <div>加载中。。。</div>;
-  }
 }
 
-const mapStateToProps = (state) => ({
-  trialCars: state.trialCars
-});
-
-const mapDispatchToProps = {
-  getTrialCarList
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Me);
+export default Me;
