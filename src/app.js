@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import store from './model';
 import {Route,BrowserRouter, Switch} from 'react-router-dom';
-import TrialCars from './components/TrialCars/TrialCars';
-import Tabs from './components/Tabs/Tabs';
+import TrialCars from './containner/TrialCars/TrialCars';
+import Tabs from './containner/Tabs/Tabs';
 
 class App extends React.Component {
     render() {

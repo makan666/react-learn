@@ -6,7 +6,7 @@ import {getSubscriptions} from '../../model/actions/subscriptions';
 import { List } from 'antd-mobile';
 import moment from 'moment';
 import './Home.scss'
-import SearchBar from '../SearchBar/SearchBar';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 const Item = List.Item;
 const Brief = Item.Brief;

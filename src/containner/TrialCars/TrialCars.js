@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {NavBar, Icon} from 'antd-mobile';
 import {getTrialCarList} from '../../model/actions/trialCars';
 import './TrialCars.scss'
-import SearchBar from '../SearchBar/SearchBar';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 
