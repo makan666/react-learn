@@ -56,28 +56,29 @@ class TrialCars extends React.Component {
                             <Icon key="0" type="ellipsis" style={{marginRight: '16px'}}/>
                         ]}
                     >试驾</NavBar>
+                    <SearchBar placeholder='搜索'></SearchBar>
                     <InfiniteScroll
                         next={this.loadNextFunc.bind(this)}
                         scrollThreshold='1'
                         hasMore={this.props.trialCars.hasMore}
-                        loader={
-                            <div className="bottom-area">
-                                <img src={require('../../assets/img/loading.svg')}/>
-                            </div>
-                        }
-                        endMessage={
-                            <div className="bottom-area">
-                                <div className="no-more">没有更多了</div>
-                            </div>
-                        }>
-                        <SearchBar placeholder='搜索'></SearchBar>
-                        {list}
+                        loader={<div className="bottom-area"><img src={require('../../assets/img/loading.svg')}/></div>}
+                        endMessage={<div className="bottom-area"><div className="no-more">没有更多了</div></div>}
+                    >{list}
                     </InfiniteScroll>
                 </div>
             )
         }
         return (
             <div className='trial-cars'>
+                <NavBar
+                    mode="dark"
+                    icon={<Icon type="left"/>}
+                    leftContent="返回"
+                    onLeftClick={() => this.props.history.goBack()}
+                    rightContent={[
+                        <Icon key="0" type="ellipsis" style={{marginRight: '16px'}}/>
+                    ]}
+                >试驾</NavBar>
                 <div className='center'>加载中...</div>
             </div>
         );
