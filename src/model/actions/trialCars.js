@@ -31,7 +31,6 @@ export function getTrialCarList(page) {
         dispatch(getListLoading(true));
         fetch(`http://127.0.0.1:3000/api/trial_cars?format=json&page=${page}`, {method: 'get', type: 'json'})
             .then((res) => {
-              dispatch(getListLoading(false));
               res.json().then(function (data) {
                 // 这里可以格式化数据，可以使用normalizr等辅助工具处理数据
                 dispatch(getListSuccess(data));
