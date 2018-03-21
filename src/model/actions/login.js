@@ -27,14 +27,12 @@ export function loginFailure(error) {
 
 export function login() {
     return function (dispatch) {
-        console.log('-------login()-------------dispatch----------')
-        // 假接口，看看就行
         dispatch(loginLoading(true));
-        fetch('http://192.168.2.68:3000/api/trial_cars.json')
-            .then((response) => {
-                dispatch(loginLoading(false));
-                // 这里可以格式化数据，可以使用normalizr等辅助工具处理数据
-                dispatch(loginSuccess(response));
+        fetch('http://127.0.0.1:3000/api/consumer?phone=13212345678&code=000000', {method: "POST"})
+            .then((res) => {
+                res.json().then(function (data) {
+                    dispatch(loginSuccess(data));
+                })
             })
             .catch((error) => {
                 dispatch(loginLoading(false));
