@@ -23,7 +23,7 @@ class Home extends React.Component {
     pushTo(name) {
         switch (name) {
             case '车商城':
-                return '';
+                return '/sales';
             case '试驾':
                 return '/trial-cars';
             case '车头条':

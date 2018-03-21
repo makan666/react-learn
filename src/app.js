@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import store from './model';
 import {Route,BrowserRouter, Switch} from 'react-router-dom';
 import TrialCars from './containner/TrialCars/TrialCars';
+import Sales from './containner/Sales/Sales';
 import Tabs from './containner/Tabs/Tabs';
 
 class App extends React.Component {
@@ -14,6 +15,7 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path="/" component={Tabs}></Route>
                         <Route path="/trial-cars" component={TrialCars}></Route>
+                        <Route path="/sales" component={Sales}></Route>
                     </Switch>
                 </BrowserRouter>
             </Provider>

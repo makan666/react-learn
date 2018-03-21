@@ -1,0 +1,110 @@
+.trial-cars {
+
+  .am-navbar {
+    top: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    background-color: #333;
+  }
+
+  .search-bar {
+    margin-top: 53px;
+  }
+
+  .am-navbar-right {
+    margin: 0;
+  }
+
+  .am-navbar-left {
+    padding: 0;
+  }
+
+  .item {
+    display: flex;
+    padding-left: 12px;
+    text-decoration: none;
+    border-bottom: .5px solid #e7e7e7;
+    background-color: #fff;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .car-img {
+    margin: 12px 0;
+    width: 88px;
+    height: 66px;
+  }
+
+  .car-list {
+    overflow: hidden;
+    border-top: .5px solid #e7e7e7;
+    border-bottom: .5px solid #e7e7e7;
+    background-color: #fff;
+
+    &:first-child {
+      border-top: 0;
+    }
+  }
+
+  .car-info {
+    flex: 1;
+    width: 0;
+    margin: 12px;
+  }
+
+  .car-info > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .display-name {
+    font-size: 15px;
+    color: #41464c;
+  }
+
+  .price {
+    color: #f64f4f;
+  }
+
+  .subtitle {
+    margin-top: 2px;
+    font-size: 14px;
+    color: #adb1b7;
+  }
+
+  .car-shop {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #acb1b7;
+  }
+
+  .bottom-area {
+    padding: 12px 0;
+    text-align: center;
+    background-color: #fff;
+
+    .mint-spinner-fading-circle {
+      display: inline-block;
+    }
+
+    .no-more {
+      font-size: 12px;
+      text-align: center;
+      color: #acb1b7;
+      background-color: #fff;
+    }
+  }
+
+  .center {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+}

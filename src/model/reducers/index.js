@@ -1,12 +1,14 @@
 import {combineReducers} from 'redux';
 import login from './login'
-import trialCars from './trialCars'
 import subscriptions from './subscriptions'
+import trialCars from './trialCars'
+import sales from './sales'
 
 let reducers = combineReducers({
     login,
+    subscriptions,
     trialCars,
-    subscriptions
+    sales
 });
 
 export default reducers;
