@@ -25,10 +25,10 @@ export function loginFailure(error) {
     }
 }
 
-export function login() {
+export function login(name, pwd) {
     return function (dispatch) {
         dispatch(loginLoading(true));
-        fetch('http://127.0.0.1:3000/api/consumer?phone=13212345678&code=000000', {method: "POST"})
+        fetch(`http://127.0.0.1:3000/api/consumer?phone=${name}&code=${pwd}`, {method: "POST"})
             .then((res) => {
                 res.json().then(function (data) {
                     dispatch(loginSuccess(data));
