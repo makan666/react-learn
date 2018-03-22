@@ -21,6 +21,7 @@
     "jquery": "^3.3.1",
     "moment": "^2.20.1",
     "node-sass": "^4.7.2",
+    "rc-form": "^2.1.7",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-infinite-scroll-component": "^3.0.2",
