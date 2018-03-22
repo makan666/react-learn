@@ -35,7 +35,7 @@ class Login extends React.Component {
                 <NavBar
                     mode="dark"
                     leftContent="关闭"
-                    onLeftClick={() => this.props.history.goBack()}
+                    onLeftClick={() => {this.props.history.goBack();this.props.selectedTab('me')}}
                     rightContent={[
                         <Icon key="0" type="ellipsis" style={{marginRight: '16px'}}/>
                     ]}
