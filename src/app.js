@@ -6,6 +6,7 @@ import {Route,BrowserRouter, Switch} from 'react-router-dom';
 import TrialCars from './containner/TrialCars/TrialCars';
 import Sales from './containner/Sales/Sales';
 import Tabs from './containner/Tabs/Tabs';
+import Login from './containner/Login/Login';
 
 class App extends React.Component {
     render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
                         <Route exact path="/" component={Tabs}></Route>
                         <Route path="/trial-cars" component={TrialCars}></Route>
                         <Route path="/sales" component={Sales}></Route>
+                        <Route path="/login" component={Login}></Route>
                     </Switch>
                 </BrowserRouter>
             </Provider>

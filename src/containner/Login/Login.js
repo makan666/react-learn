@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {NavBar, Icon, List, InputItem} from 'antd-mobile';
 import {login} from '../../model/actions/login';
-import { createForm } from 'rc-form';
+import {createForm} from 'rc-form';
 
 class Login extends React.Component {
 
@@ -18,35 +18,36 @@ class Login extends React.Component {
     }
 
     render() {
-        const { getFieldProps } = this.props.form;
+        const {getFieldProps} = this.props.form;
         return (
             <div className='trial-cars'>
                 <NavBar
                     mode="dark"
-                    icon={<Icon type="left"/>}
-                    leftContent="返回"
-                    onLeftClick={() => {}}
+                    leftContent="关闭"
+                    onLeftClick={() => this.props.history.goBack()}
                     rightContent={[
                         <Icon key="0" type="ellipsis" style={{marginRight: '16px'}}/>
                     ]}
                 >登录</NavBar>
 
-                <List>
+                <List style={{marginTop: '53px'}}>
                     <InputItem
                         {...getFieldProps('phone')}
                         clear
                         placeholder="请输入手机号"
                         ref={el => this.autoFocusInst = el}
+                        value='13212345678'
                     >用户名</InputItem>
                     <InputItem
                         {...getFieldProps('code')}
                         clear
                         placeholder="请输入验证码"
                         ref={el => this.customFocusInst = el}
+                        value='000000'
                     >验证码</InputItem>
                     <List.Item>
                         <div
-                            style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
+                            style={{width: '100%', color: '#108ee9', textAlign: 'center'}}
                             onClick={this.handleClick}
                         >登录
                         </div>

@@ -6,6 +6,7 @@ import Home from '../Home/Home';
 import Discover from '../Discover/Discover';
 import Contact from '../Contact/Contact';
 import Me from '../Me/Me';
+import {withRouter} from "react-router-dom";
 import {NavBar, Icon} from 'antd-mobile';
 import {login} from '../../model/actions/login';
 import './Tabs.scss';
@@ -118,16 +119,21 @@ class Tabs extends React.Component {
                         key="我"
                         selected={this.state.selectedTab === 'me'}
                         onPress={() => {
-                            this.setState({
-                                selectedTab: 'me',
-                            });
+                            if (this.props.userInfo.data.authenticationToken) {
+                                this.setState({
+                                    selectedTab: 'me',
+                                });
+                            } else {
+                                this.props.history.push("/login")
+                            }
                         }}
                     >
-                        {this.renderContent('我')}
-                    </TabBar.Item>
-                </TabBar>
-            </div>
-        );
+                    {this.renderContent('我')}
+                </TabBar.Item>
+            </TabBar>
+    </div>
+    )
+        ;
     }
 }
 
@@ -139,4 +145,4 @@ const mapDispatchToProps = {
     login
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tabs);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Tabs));

@@ -1,11 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import {List} from 'antd-mobile';
+import {login} from '../../model/actions/login';
 import './Me.scss'
 
 const Item = List.Item;
 const Brief = Item.Brief;
 
 class Me extends React.Component {
+
+    static propTypes = {
+        userInfo: PropTypes.object
+    };
 
     render() {
         return (
@@ -42,4 +49,12 @@ class Me extends React.Component {
     }
 }
 
-export default Me;
+const mapStateToProps = (state) => ({
+    userInfo: state.userInfo
+});
+
+const mapDispatchToProps = {
+    login
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Me);
