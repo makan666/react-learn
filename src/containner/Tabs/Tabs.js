@@ -9,17 +9,19 @@ import Me from '../Me/Me';
 import {withRouter} from "react-router-dom";
 import {NavBar, Icon} from 'antd-mobile';
 import {login} from '../../model/actions/login';
+import {selected} from '../../model/actions/tabs';
 import './Tabs.scss';
 
 class Tabs extends React.Component {
     static propTypes = {
-        userInfo: PropTypes.object
+        userInfo: PropTypes.object,
+        selected: PropTypes.object
     };
 
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: 'home',
+            selectedTab: this.props.selected.id || 'home',
             hidden: false,
             fullScreen: true,
         };
@@ -138,11 +140,13 @@ class Tabs extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    userInfo: state.userInfo
+    userInfo: state.userInfo,
+    selected: state.selected
 });
 
 const mapDispatchToProps = {
-    login
+    login,
+    selected
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Tabs));

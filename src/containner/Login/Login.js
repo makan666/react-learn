@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {NavBar, Icon, List, InputItem, WhiteSpace, Button} from 'antd-mobile';
 import {login} from '../../model/actions/login';
+import {selectedTab} from '../../model/actions/tabs';
 import {createForm} from 'rc-form';
 import store from '../../model';
 import './Login.scss'
@@ -22,7 +23,7 @@ class Login extends React.Component {
 
     componentWillUpdate() {
         if (store.getState().userInfo.data && store.getState().userInfo.data.authenticationToken) {
-            // console.log(store.getState().userInfo)
+            this.props.selectedTab('me')
             this.props.history.goBack()
         }
     }
@@ -69,7 +70,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    login
+    login,
+    selectedTab
 };
 
 const LoginForm = createForm()(Login);

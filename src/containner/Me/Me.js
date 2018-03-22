@@ -14,10 +14,6 @@ class Me extends React.Component {
         userInfo: PropTypes.object
     };
 
-    componentWillMount() {
-        console.log(this.props.userInfo)
-    }
-
     render() {
         return (
             <div className='me-page'>
