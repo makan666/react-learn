@@ -9,7 +9,7 @@ import Me from '../Me/Me';
 import {withRouter} from "react-router-dom";
 import {NavBar, Icon} from 'antd-mobile';
 import {login} from '../../model/actions/login';
-import {selected} from '../../model/actions/tabs';
+import {selectedTab} from '../../model/actions/tabs';
 import './Tabs.scss';
 
 class Tabs extends React.Component {
@@ -21,10 +21,10 @@ class Tabs extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: this.props.selected.id || 'home',
             hidden: false,
             fullScreen: true,
         };
+        this.props.selectedTab(this.props.selected.id || 'home')
     }
 
     renderContent(pageText) {
@@ -75,11 +75,9 @@ class Tabs extends React.Component {
                         selectedIcon={{uri: 'https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg'}}
                         title="看车"
                         key="看车"
-                        selected={this.state.selectedTab === 'home'}
+                        selected={this.props.selected.id === 'home'}
                         onPress={() => {
-                            this.setState({
-                                selectedTab: 'home',
-                            });
+                            this.props.selectedTab('home')
                         }}
                         data-seed="logId"
                     >
@@ -90,11 +88,9 @@ class Tabs extends React.Component {
                         selectedIcon={{uri: 'https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg'}}
                         title="车讯录"
                         key="车讯录"
-                        selected={this.state.selectedTab === 'contact'}
+                        selected={this.props.selected.id === 'contact'}
                         onPress={() => {
-                            this.setState({
-                                selectedTab: 'contact',
-                            });
+                            this.props.selectedTab('contact')
                         }}
                         data-seed="logId1"
                     >
@@ -105,11 +101,9 @@ class Tabs extends React.Component {
                         selectedIcon={{uri: 'https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg'}}
                         title="发现"
                         key="发现"
-                        selected={this.state.selectedTab === 'discover'}
+                        selected={this.props.selected.id === 'discover'}
                         onPress={() => {
-                            this.setState({
-                                selectedTab: 'discover',
-                            });
+                            this.props.selectedTab('discover')
                         }}
                     >
                         {this.renderContent('发现')}
@@ -119,12 +113,10 @@ class Tabs extends React.Component {
                         selectedIcon={{uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'}}
                         title="我"
                         key="我"
-                        selected={this.state.selectedTab === 'me'}
+                        selected={this.props.selected.id === 'me'}
                         onPress={() => {
                             if (this.props.userInfo.data.authenticationToken) {
-                                this.setState({
-                                    selectedTab: 'me',
-                                });
+                                this.props.selectedTab('me')
                             } else {
                                 this.props.history.push("/login")
                             }
@@ -146,7 +138,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     login,
-    selected
+    selectedTab
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Tabs));
