@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {NavBar, Icon, List, InputItem} from 'antd-mobile';
+import {NavBar, Icon, List, InputItem, WhiteSpace, Button} from 'antd-mobile';
 import {login} from '../../model/actions/login';
 import {createForm} from 'rc-form';
+import store from '../../model';
+import './Login.scss'
 
 class Login extends React.Component {
 
@@ -15,12 +17,20 @@ class Login extends React.Component {
         let phone = this.props.form.getFieldsValue().phone
         let code = this.props.form.getFieldsValue().code
         this.props.login(phone, code)
+
+    }
+
+    componentWillUpdate() {
+        if (store.getState().userInfo.data && store.getState().userInfo.data.authenticationToken) {
+            // console.log(store.getState().userInfo)
+            this.props.history.goBack()
+        }
     }
 
     render() {
         const {getFieldProps} = this.props.form;
         return (
-            <div className='trial-cars'>
+            <div className='login-page'>
                 <NavBar
                     mode="dark"
                     leftContent="关闭"
@@ -30,7 +40,7 @@ class Login extends React.Component {
                     ]}
                 >登录</NavBar>
 
-                <List style={{marginTop: '53px'}}>
+                <List>
                     <InputItem
                         {...getFieldProps('phone')}
                         clear
@@ -45,13 +55,9 @@ class Login extends React.Component {
                         ref={el => this.customFocusInst = el}
                         value='000000'
                     >验证码</InputItem>
-                    <List.Item>
-                        <div
-                            style={{width: '100%', color: '#108ee9', textAlign: 'center'}}
-                            onClick={this.handleClick}
-                        >登录
-                        </div>
-                    </List.Item>
+                    <WhiteSpace/>
+                    <WhiteSpace/>
+                    <Button className='login-btn' type="primary" onClick={this.handleClick}>登录</Button>
                 </List>
             </div>
         )

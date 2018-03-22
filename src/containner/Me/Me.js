@@ -14,13 +14,17 @@ class Me extends React.Component {
         userInfo: PropTypes.object
     };
 
+    componentWillMount() {
+        console.log(this.props.userInfo)
+    }
+
     render() {
         return (
             <div className='me-page'>
                 <List className='avatar'>
                     <Item arrow="horizontal" thumb={require('../../assets/img/img-default-avatar.svg')} multipleLine onClick={() => {}}>
                         未设置昵称
-                        <Brief>看车号：000000</Brief>
+                        <Brief>看车号：{this.props.userInfo.data.carOwnerNumber || '000000'}</Brief>
                     </Item>
                 </List>
                 <List className='list-item'>
